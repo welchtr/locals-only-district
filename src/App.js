@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
 
 class App extends Component {
+  state = {
+    events: []
+  }
+
+  componentDidMount(){
+    // Make a request for a user with a given ID
+axios.get('http://localhost:3000/events')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  }
+
   render() {
     return (
       <div className="App">
