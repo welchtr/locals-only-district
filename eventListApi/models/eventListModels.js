@@ -9,6 +9,7 @@ var EventsSchema = new Schema({
    event_venue : { type: String },
    event_date: { type: String,},
    event_time: { type: String },
+   event_link: { type: String }
 });
 
 module.exports = mongoose.model('Events', EventsSchema);
