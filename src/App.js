@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
+import {EventList} from './components/EventList'
 
 class App extends Component {
   state = {
@@ -10,13 +11,11 @@ class App extends Component {
 
   componentDidMount(){
     // Make a request for a user with a given ID
-axios.get('http://localhost:3000/events')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+    axios.get('http://localhost:3000/events')
+      .then(res => this.setState({ events: res.data }))
+      .catch(function (error) {
+        console.log(error);
+      });
 
   }
 
@@ -28,7 +27,8 @@ axios.get('http://localhost:3000/events')
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <EventList events={this.state.events} />
+
         </p>
       </div>
     );
