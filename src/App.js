@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 import {EventList} from './components/EventList'
+import {Card, CardTitle, CardText, Row, Col} from 'reactstrap'
 
 class App extends Component {
   state = {
@@ -27,7 +28,18 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          <EventList events={this.state.events} />
+          <div className = "container">
+          <Row>
+           {this.state.events.map(event => (
+             <Col sm="3">
+               <Card body>
+                 <CardTitle>{event.event_name}</CardTitle>
+                 {/* <Button><a href={winery.winery_url} target="_blank">DRINK HERE</a></Button> */}
+               </Card>
+             </Col>
+           ))}
+         </Row>
+         </div>
 
         </p>
       </div>
