@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 import {EventList} from './components/EventList'
-import {Card, CardTitle, CardText, Row, Col} from 'reactstrap'
+import {Container, Card, CardTitle, CardSubtitle, CardText,CardColumns, CardBody, Row, Col} from 'reactstrap';
+import styles from './index.css';
 
 class App extends Component {
   state = {
@@ -23,28 +24,38 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          <div className = "container">
-          <Row>
-           {this.state.events.map(event => (
-             <Col sm="3">
-               <Card body>
-                 <CardTitle>{event.event_name}</CardTitle>
-                 {/* <Button><a href={winery.winery_url} target="_blank">DRINK HERE</a></Button> */}
-               </Card>
-             </Col>
-           ))}
-         </Row>
-         </div>
+      <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <h1 className="App-title">Welcome to Locals-Only-District</h1>
+       </header>
 
-        </p>
+       <Container>
+       <CardColumns>
+      {this.state.events.map(event => (
+
+
+               <Card>
+               <CardBody>
+               <CardTitle>{event.event_name}</CardTitle>
+               <CardSubtitle>{event.event_date}</CardSubtitle>
+               <CardSubtitle>{event.event_time}</CardSubtitle>
+               <CardSubtitle>{event.event_venue}</CardSubtitle>
+
+               </CardBody>
+               </Card>
+            
+
+
+
+))}
+      </CardColumns>
+      </Container>
       </div>
-    );
-  }
-}
+
+
+
+);
+
+}}
 
 export default App;
