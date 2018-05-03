@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
       <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+      // <img src= "api-images/BCFEST.png" className="App-logo" alt="logo" />
       <h1 className="App-title">Welcome to Locals-Only-District</h1>
        </header>
 
@@ -36,6 +36,7 @@ class App extends Component {
 
                <Card>
                <CardBody>
+               <img src= {event.event_photo} />
                <CardTitle>{event.event_name}</CardTitle>
                <CardSubtitle>{event.event_date}</CardSubtitle>
                <CardSubtitle>{event.event_time}</CardSubtitle>
@@ -43,7 +44,7 @@ class App extends Component {
 
                </CardBody>
                </Card>
-            
+
 
 
 
