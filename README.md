@@ -1,5 +1,5 @@
 # Local Only District
-Where community meets connection
+Low key & cool shit
 
 ## Description
 Locals Only District is a hub exclusively for Washington D.C based events, concerts, festivals, activities, businesses, and discussions. It will be updated daily to showcase whats going in DC day to day, focusing mostly on non-touristy activities.
