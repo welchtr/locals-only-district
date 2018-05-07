@@ -12,6 +12,7 @@ exports.list_all_events = function(req, res) {
 
 exports.create_a_event = function(req, res) {
   var new_event = new Events(req.body);
+    console.log(req.body);
   new_event.save(function(err, events) {
     if (err)
       res.send(err);
