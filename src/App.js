@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import About from "./components/pages/about";
+import Home from "./components/pages/home";
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 import {EventList} from './components/EventList'
 import {Container, Card, CardTitle, CardSubtitle, CardText,CardColumns, CardBody, Row, Col} from 'reactstrap';
 import styles from './index.css';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 class App extends Component {
   state = {
     events: []
-  }
+  };
+
+  // this.state.toggle = this.toggle.bind(this);
+  //   this.state = {
+  //     isOpen: false
+  //   };
+  //
+  //   toggle() {
+  //  this.setState({
+  //    isOpen: !this.state.isOpen
+  //  });
+  // }
+
 
   componentDidMount(){
     // Make a request for a user with a given ID
@@ -21,42 +48,22 @@ class App extends Component {
 
   }
 
+
+
   render() {
     return (
       <div className="App">
-      <header className="App-header">
-      // <img src= "api-images/BCFEST.png" className="App-logo" alt="logo" />
-      <h1 className="App-title">Welcome to Locals-Only-District</h1>
-       </header>
-
-       <Container>
-       <CardColumns>
-      {this.state.events.map(event => (
-
-
-               <Card>
-               <CardBody>
-               <img src= {event.event_photo} />
-               <CardTitle>{event.event_name}</CardTitle>
-               <CardSubtitle>{event.event_date}</CardSubtitle>
-               <CardSubtitle>{event.event_time}</CardSubtitle>
-               <CardSubtitle>{event.event_venue}</CardSubtitle>
-
-               </CardBody>
-               </Card>
-
-
-
-
-))}
-      </CardColumns>
-      </Container>
-      </div>
-
-
-
-);
-
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Locals-Only-District</NavbarBrand>
+         </Navbar>
+         <Router>
+           <div>
+              <Route exact path="/about/:id" component={({match}) => <About match={match} events={this.state.events}/>} />
+              <Route exact path="/" component={() => <Home events={this.state.events} />} />
+            </div>
+         </Router>
+       </div>
+    );
 }}
 
 export default App;
