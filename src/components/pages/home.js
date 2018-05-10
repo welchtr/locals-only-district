@@ -17,41 +17,6 @@ import {
   DropdownItem } from 'reactstrap';
 
   class Home extends Component {
-    // state = {
-    //   events: []
-    // };
-    //
-    // handleOnClick = () => {
-    //
-    //   // some action...
-    //   // then redirect
-    //   this.setState({redirect: true});
-    // }
-
-
-
-    // this.state.toggle = this.toggle.bind(this);
-    //   this.state = {
-    //     isOpen: false
-    //   };
-
-    // toggle() {
-    //   this.setState({
-    //     isOpen: !this.state.isOpen
-    //   });
-    // }
-
-
-    // componentDidMount(){
-    //   // Make a request for a user with a given ID
-    //   axios.get('http://localhost:3000/events')
-    //   .then(res => this.setState({ events: res.data }))
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    //
-    // }
-
 
 
     render() {

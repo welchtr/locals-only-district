@@ -26,18 +26,6 @@ class App extends Component {
     events: []
   };
 
-  // this.state.toggle = this.toggle.bind(this);
-  //   this.state = {
-  //     isOpen: false
-  //   };
-  //
-  //   toggle() {
-  //  this.setState({
-  //    isOpen: !this.state.isOpen
-  //  });
-  // }
-
-
   componentDidMount(){
     // Make a request for a user with a given ID
     axios.get('http://localhost:3000/events')
