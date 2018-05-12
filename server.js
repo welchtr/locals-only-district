@@ -8,7 +8,7 @@ var express = require('express'),
 
   // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Events_db');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Events_db');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,6 +21,8 @@ app.use(function(req, res, next) {
 
 var routes = require('./eventListApi/routes/eventListRoutes'); //importing route
 routes(app); //register the route
+
+app.use(express.static('build'))
 
 // Start server
 app.listen(port);

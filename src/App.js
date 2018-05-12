@@ -28,7 +28,7 @@ class App extends Component {
 
   componentDidMount(){
     // Make a request for a user with a given ID
-    axios.get('http://localhost:3000/events')
+    axios.get('/events')
       .then(res => this.setState({ events: res.data }))
       .catch(function (error) {
         console.log(error);
